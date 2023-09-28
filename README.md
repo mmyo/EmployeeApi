@@ -2,7 +2,9 @@
 This is a backend REST API that allows management of records for employees. 
 
 ## How to run locally
-The application will run locally on your development machine within Visual Studio. The application has a stand alone SQL Lite database file included in the [Database](https://github.com/mmyo/EmployeeApi/tree/main/EmployeeApi/Database) directory.
+The application will run locally on your development machine within Visual Studio. The application has a stand alone SQL Lite database file included in the [Database](https://github.com/mmyo/EmployeeApi/tree/main/EmployeeApi/Database) directory. The database has been preloaded with test data:
+
+<img width="629" alt="image" src="https://github.com/mmyo/EmployeeApi/assets/8795750/c74911a9-05ae-44fb-acfe-0776e2001c72">
 
 Launching the application from Visual Studio will open up the Swagger page with supported endpoints:
 
