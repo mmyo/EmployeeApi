@@ -30,11 +30,11 @@ namespace EmployeeApi.Controllers
 
             if (searchQuery.Title != null)
             {
-                query = query.Where(x => x.Title == searchQuery.Title);
+                query = query.Where(x => x.Title.ToLower().Contains(searchQuery.Title.ToLower()));
             }
             if (searchQuery.Department != null)
             {
-                query = query.Where(x => x.Department == searchQuery.Department);
+                query = query.Where(x => x.Department.ToLower().Contains(searchQuery.Department.ToLower()));
             }
             if (searchQuery.SalaryMax != null)
             {
@@ -57,7 +57,6 @@ namespace EmployeeApi.Controllers
                         break;
                     default:
                         return BadRequest("Sort option not supported");
-                        break;
                 }
             }
 
