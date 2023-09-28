@@ -4,6 +4,10 @@ namespace EmployeeApi.Data
 {
     public interface IEmployeeRepository
     {
-        Task<IEnumerable<Employee>> GetAllEmployeesAsync();
+        void DeleteEmployee(int id);
+        IEnumerable<Employee> GetAllEmployees();
+        IEnumerable<Employee> GetEmployeesByQuery(SearchQuery searchQuery);
+        void InsertEmployee(Employee employee);
+        void UpdateEmployee(Employee employeeUpdate);
     }
 }
