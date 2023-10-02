@@ -9,6 +9,7 @@ namespace EmployeeApi.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeRepository _employeeRepository;
+
         public EmployeeController(IEmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;
@@ -18,38 +19,87 @@ namespace EmployeeApi.Controllers
         [Route("all")]
         public async Task<ActionResult<IEnumerable<Employee>>> GetAllEmployees()
         {
-            var employees = _employeeRepository.GetAllEmployees();
-            return Ok(employees);
+            try
+            {
+                var employees = _employeeRepository.GetAllEmployees();
+
+                return Ok(employees);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Log this exception: {ex}");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Server error");
+            }
+
         }
 
         [HttpGet]
         [Route("search")]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployeesByQuery([FromQuery] SearchQuery searchQuery)
+        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployeesByQuery([FromQuery] SearchRequest searchRequest)
         {
-            var employees = _employeeRepository.GetEmployeesByQuery(searchQuery);
+            try
+            {
+                var employees = _employeeRepository.GetEmployeesByQuery(searchRequest);
 
-            return Ok(employees);
+                return Ok(employees);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Log this exception: {ex}");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Server error");
+            }
+
         }
 
         [HttpPost]
         public async Task<ActionResult> AddEmployee(Employee employee)
         {
-            _employeeRepository.InsertEmployee(employee);
-            return Ok();
+            try
+            {
+                _employeeRepository.InsertEmployee(employee);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Log this exception: {ex}");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Server error");
+            }
+
         }
 
         [HttpPut]
         public async Task<ActionResult> UpdateEmployee(Employee employeeUpdate)
         {
-            _employeeRepository.UpdateEmployee(employeeUpdate);
-            return Ok();
+            try
+            {
+                _employeeRepository.UpdateEmployee(employeeUpdate);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Log this exception: {ex}");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Server error");
+            }
+
         }
 
         [HttpDelete]
         public async Task<ActionResult> DeleteEmployee(int id)
         {
-            _employeeRepository.DeleteEmployee(id);
-            return Ok();
+            try
+            {
+                _employeeRepository.DeleteEmployee(id);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Log this exception: {ex}");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Server error");
+            }
         }
     }
 }

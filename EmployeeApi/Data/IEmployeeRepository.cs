@@ -6,7 +6,7 @@ namespace EmployeeApi.Data
     {
         void DeleteEmployee(int id);
         IEnumerable<Employee> GetAllEmployees();
-        IEnumerable<Employee> GetEmployeesByQuery(SearchQuery searchQuery);
+        IEnumerable<Employee> GetEmployeesByQuery(SearchRequest searchQuery);
         void InsertEmployee(Employee employee);
         void UpdateEmployee(Employee employeeUpdate);
     }

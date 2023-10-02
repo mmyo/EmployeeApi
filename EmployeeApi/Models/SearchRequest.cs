@@ -1,7 +1,12 @@
-﻿namespace EmployeeApi.Models
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace EmployeeApi.Models
 {
-    public class SearchQuery
+    [ExcludeFromCodeCoverage]
+    public class SearchRequest
     {
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
         public int? SalaryMax { get; set; }
         public int? SalaryMin { get; set; }
         public string? Title { get; set; }

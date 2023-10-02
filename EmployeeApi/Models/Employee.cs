@@ -1,5 +1,8 @@
-﻿namespace EmployeeApi.Models
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace EmployeeApi.Models
 {
+    [ExcludeFromCodeCoverage]
     public class Employee
     {
         public int Id { get; set; }
