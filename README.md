@@ -28,7 +28,8 @@ Employee object:
 
 ## Employee Search
 
-Title and Department search support partial matches. For example, searching for employees in "Springfield" department will return:
+Searches can be done by First Name, Last Name, Title, and Department. Results can be sorted by Salary or Join Date. You may also limit by salary range using SalaryMax and SalaryMin. 
+Text searches support partial matches. For example, searching for employees in "Springfield" department will return:
 
 ```
 [
